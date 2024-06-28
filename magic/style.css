@@ -1,0 +1,93 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    padding: 10%;
+}
+
+.magic-board {
+    width: fit-content;
+    padding: 7% 15%;
+    max-width: 100%;
+    height: fit-content;
+    margin: auto;
+    background-color: rgb(56, 56, 56);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.magic-stick {
+    position: absolute;
+    width: clamp(30px,4%,50px);
+    height: 100%;
+    box-shadow: 6px 6px 20px rgb(31, 31, 31);
+}
+
+.stick-top {
+    background: linear-gradient(to right, grey, white, grey);
+    width: 100%;
+    height: 30%;
+    border-radius: 10px 10px 0 0;
+}
+
+.stick-bottom {
+    width: 100%;
+    height: 70%;
+    background:linear-gradient(to right, rgb(10,10,10) 0%,  rgb(60,60,60) 50%, rgb(10,10,10) 100%)
+}
+
+.card {
+    width: 250px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    position: relative;
+    margin-right:-40px;
+    box-shadow: 4px 6px 20px rgb(31, 31, 31);
+}
+
+.card-cover {
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+}
+
+.card-image {
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.card:nth-of-type(1) {
+    transform: rotate(5deg);
+    background: url("i1.avif");
+}
+
+
+.card:nth-of-type(2) {
+    transform: rotate(-5deg);
+    background: url("i2.jpg");
+}
+
+.card:nth-of-type(3) {
+    transform: rotate(5deg);
+    background: url("i3.jpg");
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <svg width="500" height="500" style="border:1px solid black">
+        <defs>
+            <filter id="turbulenceFilter">
+                <feTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='1' stitchTiles='stitch' seed="0"
+                    result="static">
+                    <animate attributeName="seed" values="0;20" dur="10s" repeatCount="indefinite" />
+                    <!-- <animate attributeName="baseFrequency" values="0.01;0.05;0.01" dur="10s" repeatCount="indefinite" /> -->
+                </feTurbulence>
+                <feComponentTransfer result="binaryMask" in="static">
+                    <feFuncA type="discrete" tableValues="0 1" />
+                </feComponentTransfer>
+                <feFlood x="1" y="1" height="1" width="1" />
+                <feComposite width="5" height="5" />
+                <feTile result="a" />
+                <feComposite in="SourceGraphic" in2="a" operator="in" result="b" />
+                <feComposite in="b" in2="binaryMask" operator="in" />
+            </filter>
+        </defs>
+        <rect width="100%" height="100%" fill="red" filter="url(#turbulenceFilter)" />
+    </svg>
+
+    <div class="test">
+    </div>
+
+    <div class="original"></div>
+
+    <div class="card">
+    </div>
+
+
+    <!-- <svg x="0px" y="0px" width="810px" height="600px" viewBox="0 0 810 600" color-interpolation-filters="sRGB">
+        <defs>
+      <filter id="pixelate" x="0%" y="0%" width="100%" height="100%">
+        <feGaussianBlur stdDeviation="2" in="SourceGraphic" result="smoothed" />
+        <feImage width="15" height="15" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAWSURBVAgdY1ywgOEDAwKxgJhIgFQ+AP/vCNK2s+8LAAAAAElFTkSuQmCC" result="displacement-map" />
+        <feTile in="displacement-map" result="pixelate-map" />
+        <feDisplacementMap in="smoothed" in2="pixelate-map" xChannelSelector="R" yChannelSelector="G" scale="50" result="pre-final"/>
+        <feComposite operator="in" in2="SourceGraphic"/>
+      </filter>
+        </defs>
+      
+        <image filter="url(#pixelate)" width="810" height="600" preserveAspectRatio="xMidYMid meet" xlink:href="http://uploads2.wikiart.org/images/vincent-van-gogh/the-starry-night-1889(1).jpg"/>
+      </svg> -->
+
+
+    <svg>
+        <filter id="pixelate" x="0" y="0">
+            <feFlood x="4" y="4" height="2" width="2" />
+            <feComposite width="10" height="10" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="5" />
+        </filter>
+    </svg>
+</body>
+
+</html>

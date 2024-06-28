@@ -1,0 +1,73 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width:100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    animation: colorChange auto linear;
+    animation-timeline: scroll(root block);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.card{
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    left:50%;
+    top:50%;
+    position: absolute;
+    border-radius: 10px;
+    transform: 
+    translateX(-50%)
+    translateY(-50%)
+    rotateY(calc(360deg / var(--len) * var(--i)))
+    translateZ(400px);
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation-name: roll,roll2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite,1;
+    animation-timing-function: linear,linear;
+    animation-timeline:auto,view(y);
+}
+
+@keyframes roll {
+    from{
+        transform:perspective(1000px) rotateY(0);
+    }
+    to{
+        transform:perspective(1000px) rotateY(360deg);
+    }
+}
+
+@keyframes roll2 {
+    0%{
+        rotate:x 12deg;
+    }
+    100% {
+        rotate:x -12deg;
+    }
+}
+
+@keyframes colorChange {
+    0%{
+        background-color: pink;
+    }
+    100% {
+        background-color: turquoise;
+    }
+}
