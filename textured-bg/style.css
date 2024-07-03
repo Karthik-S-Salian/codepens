@@ -1,0 +1,37 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: rgb(15, 19, 29);
+    position: relative;
+}
+
+body::before{
+    content: " ";
+    position: absolute;
+    inset: 0 0 0 0;
+    background-image: url("bg-noise.jpg");
+    opacity: .1;
+    background-size: 7vw;
+    mix-blend-mode:soft-light;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+div{
+    width: 250px;
+    height: 250px;
+    color: aliceblue;
+    background-color: rgb(255, 0, 0);
+    filter:  url("#turbulenceFilter");
+}
