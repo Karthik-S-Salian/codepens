@@ -35,3 +35,7 @@ div{
     background-color: rgb(255, 0, 0);
     filter:  url("#turbulenceFilter");
 }
+
+.filterclass {
+    filter: url(#bgfilter);
+}

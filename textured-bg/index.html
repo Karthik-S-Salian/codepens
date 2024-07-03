@@ -12,12 +12,11 @@
     <svg>
         <defs>
             <filter id="turbulenceFilter">
-                <feTurbulence type="fractalNoise" baseFrequency=".5 0.3" numOctaves="5" seed="1" >
+                <feTurbulence type="fractalNoise" baseFrequency=".5 0.3" numOctaves="5" seed="1">
                     <!-- <animate attributeName="seed" values="0;20" dur="10s" repeatCount="indefinite" /> -->
                     <!-- <animate attributeName="baseFrequency" values="0.01;0.05;0.01" dur="10s" repeatCount="indefinite" /> -->
                 </feTurbulence>
-                <feColorMatrix type="matrix" 
-                                  values="1 0 0 0 0 
+                <feColorMatrix type="matrix" values="1 0 0 0 0 
                                             0 1 0 0 0 
                                             0 0 1 0 0 
                                             0 0 0 0.1 0">
@@ -33,6 +32,40 @@
         iure ipsa necessitatibus magnam reiciendis consectetur eos amet ex voluptatem recusandae assumenda nihil eveniet
         porro natus?
     </div>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="bgfilter" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">
+            <feImage width="100" height="100" href="bg-noise.jpg" result="grid" />
+            <feTile/>
+            <feColorMatrix  type="matrix" values="1 0 0 0 0 
+              0 1 0 0 0 
+              0 0 1 0 0 
+              0 0 0 0.2 0" />
+            <feComposite operator="over" in2="SourceGraphic" />
+        </filter>
+    </svg>
+
+
+
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <!-- "data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20x%3D%220%22%20y%3D%220%22%20width%3D%226px%22%20height%3D%226px%22%20viewBox%3D%220%200%206%206%22%3E%0A%20%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22none%22%20stroke%3D%22grey%22/%3E%0A%3C/svg%3E" -->
+        <filter id="duotone_filter" color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%">
+            <feImage width="4" height="4" xlink:href="grid.svg" result="grid" />
+            <feTile/>
+            <feColorMatrix  type="matrix" values="1 0 0 0 0 
+              0 1 0 0 0 
+              0 0 1 0 0 
+              0 0 0 0.6 0" />
+            <feComposite operator="xor" in2="SourceGraphic" />
+        </filter>
+    </svg>
+
+    <p>
+        <img class="filterclass"
+            src="http://uploads2.wikiart.org/images/vincent-van-gogh/the-starry-night-1889(1).jpg" />
+    </p>
+
 </body>
 
 </html>
